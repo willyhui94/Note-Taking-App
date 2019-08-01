@@ -1,0 +1,43 @@
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    width: 60px;
+    height: 60px;
+}
+
+#noteTitle, 
+#noteSubject, 
+#noteLanguage, 
+#noteContent {
+    box-sizing: border-box;
+    width: 100%
+}
+
+div {
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+}
+
+p {
+    text-align: justify;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+textarea {
+    height: 300px !important;
+}
+
+#createBtn {
+    display: block;
+}
+
+#deleteBtn, #saveBtn {
+    display: none;
+}

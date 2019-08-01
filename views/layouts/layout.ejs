@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../commonPartials/head.ejs %>
+    <style>
+        img {
+            width: 60px;
+            height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <% include ../commonPartials/topHeader.ejs %>
+
+    <div class="container-fluid">
+        <%- body %>
+    </div>
+
+    <% include ../commonPartials/footer.ejs %>
+    <% include ../commonPartials/script.ejs %>
+</body>
+
+</html>

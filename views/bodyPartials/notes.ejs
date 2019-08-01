@@ -1,0 +1,29 @@
+<% for (let i = 0; i < number; i++) { %>
+<article class="row flex-column p-3">
+    <header class="col-lg-12 col-md-12 col-sm-12 py-3">
+        <div class="row px-3">
+            <label class="col-lg-2 col-md-3 col-sm-12">Note Title: </label>
+            <input class="p-2" value="<%= noteTitle %>">
+        </div>
+    </header>
+    <div class="col-lg-12 col-md-12 col-sm-12 py-3">
+        <div class="row px-3">
+            <label class="col-lg-2 col-md-3 col-sm-12">Languages: </label>
+            <input class="p-2" value="<%= noteLanguage %>">
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 py-3">
+        <div class="row px-3">
+            <label class="col-lg-2 col-md-3 col-sm-12">Subject: </label>
+            <input class="p-2" value="<%= noteSubject %>">
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 py-3">
+        <label class="col-lg-2 col-md-3 col-sm-12 p-3">Note Content: </label>
+        <textarea class="col-lg-12 col-md-12 col-sm-12 p-3"><%= noteContent %></textarea>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 py-3">
+        <button class="btn btn-primary float-right" type="submit">save</button>
+    </div>
+</article>
+<% }; %>

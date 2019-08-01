@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../commonPartials/head.ejs %>
+    <link rel="stylesheet" href="/stylesheets/notesPage.css">
+</head>
+
+<body>
+    <% include ../commonPartials/topHeaderAuth.ejs %>
+
+    <div class="containter-fluid">
+        <div class="row bg-light">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="row">
+                    <ul class="list-group" id="noteList">
+                        <li class="list-group-item">
+                            <button class="btn btn-outline-success" id="startNewNoteBtn">
+                                <h4>Create New Note</h4>
+                            </button>
+                        </li>
+                        <% for (let i = 0; i < sideNotes.length; i++) { %>
+                        <%- include("../bodyPartials/sideNote.ejs", {options: sideNotes[i]})  %>
+                        <% }; %>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-8 col-md-8 col-ms-12 col-xs-12">
+                <form class="p-3" id="noteDetails">
+                    <div class="form-group row">
+                        <label class="text-info">Note ID</label>
+                        <input class="form-control" id="noteId" type="text" placeholder="Note ID" disabled>
+                    </div>
+                    <div class="form-group row">
+                        <label class="text-info" for="noteTitle">Title</label>
+                        <input class="form-control" id="noteTitle" type="text" placeholder="Enter Note Title">
+                    </div>
+                    <div class="form-group row">
+                        <label class="text-info" for="">Subject</label>
+                        <select class="form-control" id="subjectSelect" name="subjectSelect">
+                            <option value="">Choose Subject</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                            <label class="text-info" for="">Language</label>
+                            <select class="form-control" id="languageSelect" name="languageSelect">
+                                <option value="">Choose Language</option>
+                            </select>
+                        </div>
+                    <div class="form-group row">
+                        <label class="text-info" for="noteContent">Content</label>
+                        <textarea class="form-control" id="noteContent" type="textarea"
+                            placeholder="Enter Note Content"></textarea>
+                    </div>
+                    <div class="form-group row float-right">
+                        <div id="createBtn">
+                            <button class="btn btn-success" type="button">Create</button>
+                        </div>
+                        <div id="deleteBtn">
+                            <button class="btn btn-danger" type="button">Delete</button>
+                        </div>
+                        <div id="saveBtn">
+                            <button class="btn btn-primary" type="button">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <% include ../commonPartials/footer.ejs %>
+
+    <% include ../commonPartials/script.ejs %>
+    <script src="/javascripts/ejs.js"></script>
+    <script src="/javascripts/notesPage.js"></script>
+
+</body>
+
+</html>
