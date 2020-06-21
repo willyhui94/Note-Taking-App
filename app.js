@@ -47,6 +47,6 @@ app.use(function(err, req, res, next) {
 
 const port = process.env.WEB_PORT;
 const hostname = process.env.WEB_HOSTNAME;
-app.listen(port, hostname, function() {
+app.listen(port, function() {
     console.log(`The ${hostname} server listeing port ${port}.`);
 });
