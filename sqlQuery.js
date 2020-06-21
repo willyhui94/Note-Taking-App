@@ -1,18 +1,27 @@
 "use strict"
-const pg = require("pg");
+const { Pool } = require("pg");
 
-const dbConfig = {
-    host: process.env.DB_HOSTNAME,
-    port: process.env.DB_PORT,
-    database: process.env.DB_DATABASE,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-}
-const client = new pg.Client(dbConfig);
-client.connect();
+// const dbConfig = {
+//     host: process.env.DB_HOSTNAME,
+//     port: process.env.DB_PORT,
+//     database: process.env.DB_DATABASE,
+//     user: process.env.DB_USER,
+//     password: process.env.DB_PASSWORD,
+// }
+// const client = new pg.Client(dbConfig);
+// client.connect();
+
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
+});
+
+const client = pool.connect();
 
 
-const sqlQuery = async function(sqlStatement, dataArr) {
+const sqlQuery = async function (sqlStatement, dataArr) {
     try {
         await client.query("BEGIN");
         let resultSet = await client.query(sqlStatement, dataArr);
