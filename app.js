@@ -45,7 +45,7 @@ app.use(function(err, req, res, next) {
     res.redirect("/login");
 });
 
-const port = process.env.WEB_PORT;
+const port = process.env.PORT;
 const hostname = process.env.WEB_HOSTNAME;
 app.listen(port, function() {
     console.log(`The ${hostname} server listeing port ${port}.`);
